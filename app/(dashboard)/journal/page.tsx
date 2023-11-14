@@ -2,6 +2,7 @@ import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
 import { getUserbyClerkID } from "@/utils/auth";
 import { prisma } from "@/utils/db";
+import { emailAddresses } from "@clerk/nextjs/api";
 import Link from "next/link";
 
 const getEntries = async () => {
@@ -17,7 +18,17 @@ const getEntries = async () => {
 
   return entries;
 };
+
+const getUserEmail = async () => {
+  const userEmail = await prisma.user.findUnique({
+    where: {
+      email,
+    },
+  });
+  return userEmail;
+};
 const JournalPage = async () => {
+  console.log(getUserEmail() + "test");
   const entries = await getEntries();
   console.log("entries", entries);
   return (

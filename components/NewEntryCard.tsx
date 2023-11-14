@@ -14,7 +14,7 @@ const NewEntryCard = () => {
       className="bg-white p-4 rounded-md cursor-pointer"
       onClick={handleOnClick}
     >
-      <div>New Entry</div>
+      <div>New Data Entry</div>
     </figure>
   );
 };

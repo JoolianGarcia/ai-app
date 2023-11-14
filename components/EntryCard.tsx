@@ -3,7 +3,7 @@ const EntryCard = ({ entry }) => {
   return (
     <figure className="bg-white p-4 rounded-md">
       <div>{date}</div>
-      <div>summary</div>
+      {/* <div>{entry.email}</div> */}
       <div>{entry.id}</div>
     </figure>
   );
