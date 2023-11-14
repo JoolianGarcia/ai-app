@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
 
-import { ClerkProvider } from "@clerk/nextjs";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
 const ibmplexsans = IBM_Plex_Sans({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "600"],
 });
+
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
