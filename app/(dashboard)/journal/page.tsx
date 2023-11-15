@@ -1,5 +1,6 @@
 import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
+import { analyse } from "@/utils/ai";
 import { getUserbyClerkID } from "@/utils/auth";
 import { prisma } from "@/utils/db";
 import { emailAddresses } from "@clerk/nextjs/api";
@@ -19,18 +20,18 @@ const getEntries = async () => {
   return entries;
 };
 
-const getUserEmail = async () => {
-  const userEmail = await prisma.user.findUnique({
-    where: {
-      email,
-    },
-  });
-  return userEmail;
-};
+// const getUserEmail = async () => {
+//   const userEmail = await prisma.user.findUnique({
+//     where: {
+//       email,
+//     },
+//   });
+//   return userEmail;
+// };
 const JournalPage = async () => {
-  console.log(getUserEmail() + "test");
+  // console.log(getUserEmail() + "test");
   const entries = await getEntries();
-  console.log("entries", entries);
+  // console.log("entries", entries);
   return (
     <div className="p-4 bg-gray-200/50 h-screen">
       <h4>Entries</h4>

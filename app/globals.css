@@ -21,3 +21,6 @@ h5 {
 h6 {
   @apply text-base text-gray-900  sm:text-lg md:text-xl;
 }
+a {
+  cursor: pointer;
+}

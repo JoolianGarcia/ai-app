@@ -11,6 +11,9 @@ const getEntry = async (id) => {
         id,
       },
     },
+    include: {
+      analysis: true,
+    },
   });
 
   return entry;
@@ -19,9 +22,9 @@ const getEntry = async (id) => {
 const EntryPage = async ({ params }) => {
   const entry = await getEntry(params.id);
   const analysisData = [
-    { name: "Summary", value: " " },
-    { name: "Subject", value: " " },
-    { name: "Score", value: " " },
+    { name: "Summary", value: entry?.analysis?.summary },
+    { name: "Subject", value: entry?.analysis?.subject },
+    { name: "Score", value: entry?.analysis?.negative ? "True" : "False " },
   ];
   return (
     <div className="p-4 bg-gray-200/75 h-screen w-full grid grid-cols-3">
